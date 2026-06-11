@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avaliação de Burnout</title>
+    <meta
+      name="description"
+      content="Ferramenta de autoavaliação para burnout profissional."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- TELA: FORMULÁRIO -->
+    <div id="page-form" class="page active">
+      <div class="container">
+        <header class="app-header">
+          <h1 class="app-title">Avaliação de Burnout</h1>
+        </header>
+
+        <form id="burnout-form" novalidate>
+          <!-- Seção 1 -->
+          <div class="form-section">
+            <div class="field-row">
+              <!-- Nome -->
+              <div class="field">
+                <label for="name">Nome</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value="João"
+                  data-testid="input-name"
+                />
+              </div>
+
+              <div class="field">
+                <!-- Idade -->
+                <label for="age">Idade</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  value="32"
+                  data-testid="input-age"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <!-- Gênero -->
+              <label>Gênero</label>
+              <div class="radio-group" data-testid="radio-activity">
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="female" />
+                  <span class="radio-label">Feminino</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="male" checked />
+                  <span class="radio-label">Masculino</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="other" />
+                  <span class="radio-label">Outros</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <!-- País -->
+                <label for="country">País</label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value="Brasil"
+                  data-testid="input-country"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Seção 2 -->
+          <div class="form-section">
+            <div class="field-row">
+              <div class="field">
+                <!-- Horas de trabalho por dia -->
+                <label for="workHoursPerDay">Horas de trabalho por dia</label>
+                <input
+                  type="number"
+                  id="workHoursPerDay"
+                  name="workHoursPerDay"
+                  min="4"
+                  max="10"
+                  value="8"
+                  data-testid="input-work-hours-per-day"
+                />
+                <span class="field-hint">Entre 4 e 12 horas</span>
+              </div>
+
+              <div class="field">
+                <!-- Horas de sono por dia -->
+                <label for="sleepHours">Horas de sono por dia</label>
+                <input
+                  type="number"
+                  id="sleepHours"
+                  name="sleepHours"
+                  min="4"
+                  max="9"
+                  value="7"
+                  data-testid="input-sleep-hours"
+                />
+                <span class="field-hint">Entre 4 e 12 horas</span>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <!-- Horas de exercício por semana -->
+                <label for="exerciseHoursPerWeek"
+                  >Horas de exercício por semana</label
+                >
+                <input
+                  type="number"
+                  id="exerciseHoursPerWeek"
+                  name="exerciseHoursPerWeek"
+                  min="0"
+                  max="6"
+                  value="3"
+                  data-testid="input-exercise-hours-per-week"
+                />
+                <span class="field-hint">Entre 0 e 6 horas</span>
+              </div>
+
+              <div class="field">
+                <!-- Horas de uso de tela por dia -->
+                <label for="screenTimeHours"
+                  >Horas de uso de tela por dia</label
+                >
+                <input
+                  type="number"
+                  id="screenTimeHours"
+                  name="screenTimeHours"
+                  min="5"
+                  max="14"
+                  value="10"
+                  data-testid="input-screen-time-hours"
+                />
+                <span class="field-hint">Entre 0 e 20 horas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seção 3 -->
+          <div class="form-section">
+            <div class="field">
+              <!-- Nível de estresse -->
+              <label>Nível de estresse</label>
+              <div class="radio-group" data-testid="radio-activity">
+                <label class="radio-option">
+                  <input type="radio" name="stressLevel" value="low" />
+                  <span class="radio-label">Baixo</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="stressLevel"
+                    value="medium"
+                    checked
+                  />
+                  <span class="radio-label">Médio</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="stressLevel" value="high" />
+                  <span class="radio-label">Alto</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field slider-field">
+              <!-- Produtividade -->
+              <div class="slider-header">
+                <label for="productivityScore">Produtividade</label>
+                <span class="slider-value" id="productivityScore-val">0</span>
+              </div>
+              <input
+                type="range"
+                id="productivityScore"
+                name="productivityScore"
+                min="0"
+                max="100"
+                value="70"
+                data-testid="slider-productivity-score"
+              />
+              <div class="slider-labels">
+                <span>Muito baixo</span><span>Ótimo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seção 4 -->
+          <div class="form-section">
+            <div class="field-row">
+              <!-- Função -->
+              <div class="field">
+                <label for="jobRole">Função</label>
+                <input
+                  type="text"
+                  id="jobRole"
+                  name="jobRole"
+                  value="Desenvolvedor"
+                  data-testid="input-job-role"
+                />
+              </div>
+
+              <!-- Anos de Experiência -->
+              <div class="field">
+                <label for="experienceYears">Anos de Experiência</label>
+                <input
+                  type="number"
+                  id="experienceYears"
+                  name="experienceYears"
+                  value="5"
+                  data-testid="input-experience-years"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <!-- Velocidade da Internet -->
+              <div class="field">
+                <label for="internet-speed"
+                  >Velocidade da Internet (Mbps)</label
+                >
+                <input
+                  type="number"
+                  id="internetSpeed"
+                  name="internetSpeed"
+                  value="500"
+                  data-testid="input-internet-speed"
+                />
+                <span class="field-hint">Entre 100 e 1000 Mbps</span>
+              </div>
+
+              <!-- Reuniões por dia -->
+              <div class="field">
+                <label for="meetingsPerDay">Reuniões por dia</label>
+                <input
+                  type="number"
+                  id="meetingsPerDay"
+                  name="meetingsPerDay"
+                  value="3"
+                  data-testid="input-meetings-per-day"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <!-- Ambiente de Trabalho -->
+              <label>Ambiente de Trabalho</label>
+              <div class="radio-group" data-testid="radio-activity">
+                <label class="radio-option">
+                  <input type="radio" name="workEnvironment" value="home" />
+                  <span class="radio-label">Em casa</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="workEnvironment"
+                    value="coworking"
+                  />
+                  <span class="radio-label">Coworking</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="workEnvironment"
+                    value="hybrid"
+                    checked
+                  />
+                  <span class="radio-label">Híbrido</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="workEnvironment" value="office" />
+                  <span class="radio-label">Escritório</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <!-- Tamanho da empresa que trabalha -->
+              <label>Tamanho da empresa que trabalha</label>
+              <div class="radio-group" data-testid="radio-activity">
+                <label class="radio-option">
+                  <input type="radio" name="companySize" value="medium" />
+                  <span class="radio-label">Média</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="companySize" value="mnc" checked />
+                  <span class="radio-label">Multinacional</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="companySize" value="large" />
+                  <span class="radio-label">Grande</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="companySize" value="small" />
+                  <span class="radio-label">Pequena</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div id="form-error" class="form-error" style="display: none"></div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="submit-btn"
+            data-testid="button-submit"
+          >
+            <span id="submit-label">Ver minha avaliação</span>
+            <span id="submit-loading" style="display: none">Analisando...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="result-modal" class="modal">
+      <div class="modal-content">
+
+        <button id="close-modal" class="close-modal">
+          ×
+        </button>
+
+        <h2>Resultado da Avaliação</h2>
+
+        <div
+          id="result-banner"
+          class="result-banner"
+          data-testid="result-banner"
+        >
+          <div class="banner-greeting" id="banner-greeting"></div>
+          <div class="banner-label" id="banner-label"></div>
+          <div class="banner-message" id="banner-message"></div>
+        </div>
+
+        <div class="gauge-container">
+          <div class="gauge">
+            <div id="gauge-pointer" class="gauge-pointer"></div>
+          </div>
+
+          <div id="gauge-percentage" class="gauge-percentage">
+            0%
+          </div>
+        </div>
+
+        <button
+          class="reset-btn"
+          id="reset-btn"
+          data-testid="button-reset"
+        >
+          Fazer nova avaliação
+        </button>
+
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
