@@ -31,7 +31,8 @@ def predict_burnout(data):
     # Calcula a probabilidade do Burnout (valor entre 0.0 e 1.0)
     probability = float(model.predict_proba(df)[0][1])
 
+    # Enviamos o valor decimal puro (0.0 a 1.0) para o seu main.js multiplicar por 100
     return {
         "hasBurnout": probability >= 0.5,
-        "probability": round(probability * 100, 2)
+        "probability": round(probability, 4)
     }
