@@ -1,6 +1,6 @@
-flask
+fastapi
 scikit-learn
 pandas
 numpy
-gunicorn
+uvicorn
 flask-cors
